@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { spicyFoods, getNewRandomSpicyFood } from "../data";
 
-function SpicyFoodList() {
+export const SpicyFoodList=()=> {
   const [foods, setFoods] = useState(spicyFoods);
 
   function handleAddFood() {
     const newFood = getNewRandomSpicyFood();
-    console.log(newFood);
+    const newFoodArray = [...foods, newFood];
+    setFoods(newFoodArray);
   }
 
   const foodList = foods.map((food) => (
@@ -23,4 +24,4 @@ function SpicyFoodList() {
   );
 }
 
-export default SpicyFoodList;
+
